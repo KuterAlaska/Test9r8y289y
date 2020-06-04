@@ -1,0 +1,26 @@
+{
+  "mode": "Rule",
+  "proxies": [{
+    "name": "snell",
+    "type": "snell",
+    "server": "example.com",
+    "port": 443,
+    "psk": "password",
+    "obfs-opts": {
+      "mode": "http"
+    }
+  },
+  {
+    "name": "trojan",
+    "type": "trojan",
+    "server": "example.com",
+    "port": 443,
+    "password": "password"
+  }],
+  "proxy-groups": [{
+    "name": "proxy",
+    "type": "select",
+    "proxies": ["snell", "trojan"]
+  }],
+  "rules": ["MATCH,snell"]
+}
